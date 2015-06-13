@@ -1,0 +1,28 @@
+{
+  "name": "riot-tag-base-ajax-json",
+  "version": "0.5.0",
+  "description": "Tag to simplify ajax requests against json sources",
+  "main": "base-ajax-json.tag",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riot-tags/base-ajax-json.git"
+  },
+  "keywords": [
+    "riot-tag",
+    "ajax",
+    "json",
+    "functional"
+  ],
+  "author": "Per-Håkan Westman <ph@aspsele.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riot-tags/base-ajax-json/issues"
+  },
+  "homepage": "https://github.com/riot-tags/base-ajax-json",
+  "dependencies": {
+    "riot-tag-base-ajax": "^0.5.1"
+  }
+}
