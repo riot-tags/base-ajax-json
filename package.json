@@ -1,6 +1,6 @@
 {
   "name": "riot-tag-base-ajax-json",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Tag to simplify ajax requests against json sources",
   "main": "base-ajax-json.tag",
   "scripts": {

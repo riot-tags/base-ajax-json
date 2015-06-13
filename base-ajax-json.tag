@@ -1,4 +1,3 @@
-require('./node_modules/riot-tag-base-ajax/base-ajax');
 <base-ajax-json>
 
     <!-- Makes ajax calls and handles the json for the ajax call.
@@ -20,9 +19,9 @@ require('./node_modules/riot-tag-base-ajax/base-ajax');
         self.query = opts.query || null;
 
         //"Listen" for observable event.
-        this.on('go', function(payload, onsuccess, onerror){
-            self.go(payload, onsuccess, onerror);
-        });
+        // this.on('go', function(payload, onsuccess, onerror){
+        //     self.go(payload, onsuccess, onerror);
+        // });
 
         /** Creates a querystring from object.
          * @return {string}     a encoded uri string.
@@ -53,11 +52,11 @@ require('./node_modules/riot-tag-base-ajax/base-ajax');
             xhr.onreadystatechange = function() {
                 if(xhr.readyState == 4 ) {
                     if  (xhr.status == 200 || xhr.status == 0) {
-                        var successevent = new CustomEvent('response-success',
-                            {
-                                detail:JSON.parse(xhr.response)
-                            });
-                        self.root.dispatchEvent(successevent);
+                        // var successevent = new CustomEvent('response-success',
+                        //     {
+                        //         detail:JSON.parse(xhr.response)
+                        //     });
+                        // self.root.dispatchEvent(successevent);
                         onsuccess(JSON.parse(xhr.response));
                     } else {
                         onerror(xhr.status, xhr.response);
@@ -79,11 +78,12 @@ require('./node_modules/riot-tag-base-ajax/base-ajax');
 
         this.on('mount', function(){
             //Add dom eventlistner to the root element.
-            //self.root.addEventListener('go', self.go);
-            self.root.go = self.go;
+            self.root.removeEventListener('go', self.go);
+            self.root.addEventListener('go', self.go);
+            //self.root.go = self.go;
         });
         this.on('unmount', function(){
-            //self.root.removeEventListener('go', self.go);
+            self.root.removeEventListener('go', self.go);
 
         });
 
